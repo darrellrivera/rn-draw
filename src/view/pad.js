@@ -5,16 +5,14 @@ import {
   StyleSheet,
   Platform
 } from 'react-native'
-import {Svg} from '../config'
-const {
-  G, 
-  Surface, 
-  Path
-} = Svg
+import Svg, {
+    G,
+    Path,
+    Surface,
+} from 'react-native-svg';
+
 import Pen from '../tools/pen'
 import Point from '../tools/point'
-const {OS} = Platform
-// import Bezier from '../tools/bezier'
 export default class Whiteboard extends React.Component {
 
   constructor(props, context) {
@@ -40,7 +38,7 @@ export default class Whiteboard extends React.Component {
       rewind: rewind(this.rewind),
       clear: clear(this.clear),
     }
-    
+
   }
 
   rewind = () => {
@@ -49,7 +47,7 @@ export default class Whiteboard extends React.Component {
     strokes.pop()
 
     this.state.pen.rewindStroke()
-    
+
     this.setState({
       previousStrokes: [...strokes],
       currentPoints: [],
@@ -103,7 +101,7 @@ export default class Whiteboard extends React.Component {
     )
 
     this.state.pen.addStroke(this.state.currentPoints)
-    
+
     this.setState({
       previousStrokes: [...this.state.previousStrokes, newElement],
       currentPoints: [],
