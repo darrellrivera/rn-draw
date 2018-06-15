@@ -1,1 +1,1 @@
-const Svg = exports.Svg = require('expo') ? require('expo').Svg : require('react-native-svg').default
+export const Svg = require('react-native-svg').default
